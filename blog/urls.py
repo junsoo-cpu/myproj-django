@@ -1,3 +1,3 @@
 app_name = "blog"
 
-urlpattenrs = []
+urlpatterns = []
