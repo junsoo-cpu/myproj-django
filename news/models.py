@@ -12,6 +12,7 @@ class TimestampedModel(models.Model):
 class Article(TimestampedModel):
     title = models.CharField(max_length=100, db_index=True)
     content = models.TextField()
+    photo = models.ImageField(blank=True)
 
     def __str__(self) -> str:
         return self.title
