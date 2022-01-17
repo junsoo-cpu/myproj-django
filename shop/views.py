@@ -12,7 +12,6 @@ review_new = CreateView.as_view(
     model=Review,
     form_class=ReviewForm,
     success_url=reverse_lazy("shop:review_list"),
-
 )
 
 
