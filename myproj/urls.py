@@ -9,18 +9,10 @@ urlpatterns = [
     path("blog/", include("blog.urls")),
     path("news/", include("news.urls")),
     path("animation/", include("animation.urls")),
+    path("accounts/", include("accounts.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 # Todo : 아래 token view는 accounts 앱 내에 두는 것이 맞다.
 
-from rest_framework_simplejwt.views import (
-    TokenObtainPairView,
-    TokenRefreshView,
-)
-
-urlpatterns += [
-    path("api/token/", TokenObtainPairView.as_view(), name="token_obtain_pair"),
-    path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
-]

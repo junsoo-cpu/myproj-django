@@ -1,5 +1,6 @@
 import json
 from rest_framework.generics import ListAPIView
+from rest_framework.permissions import AllowAny, IsAuthenticated
 from rest_framework.viewsets import ModelViewSet
 from news.models import Article
 from news.serializers import ArticleSerializer
@@ -9,6 +10,7 @@ from django.http import HttpResponse
 class ArticleViewSet(ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+    permission_classes = [AllowAny]
 
 
 article_list = ListAPIView.as_view(
