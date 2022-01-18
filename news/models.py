@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 from django.core.validators import MinLengthValidator, RegexValidator
 
@@ -21,6 +22,7 @@ class Article(TimestampedModel):
     )
     content = models.TextField()
     photo = models.ImageField(blank=True)
+    author = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, default=1)
 
     def __str__(self) -> str:
         return self.title
