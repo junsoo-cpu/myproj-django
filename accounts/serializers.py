@@ -20,9 +20,11 @@ class TokenObtainPairSerializer(OrigTokenObtainPairSerializer):
     # access/refresh 속성 외 추가
     def validate(self, attrs):
         data = super().validate(attrs)
-        data['username'] = self.user.username
-        data['first_name'] = self.user.first_name
-        data['last_name'] = self.user.last_name
+        data["username"] = self.user.username
+        data["first_name"] = self.user.first_name
+        data["last_name"] = self.user.last_name
+        # TODO: 프로필 이미지 URL
+        return data
 
 
 class TokenRefreshSerializer(OrigTokenRefreshSerializer):

@@ -10,13 +10,20 @@ from django.http import HttpResponse
 class ArticleViewSet(ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
-    permission_classes = [AllowAny]
+    # permission_classes = [IsAuthenticated]
+
+    def get_permissions(self):
+        # if self.request.method in ("POST", "PUT", "PATCH", "DELETE"):
+        if self.request.method == "GET":
+            return [AllowAny()]
+        return [IsAuthenticated()]
 
 
-article_list = ListAPIView.as_view(
-    queryset=Article.objects.all(),
-    serializer_class=ArticleSerializer,
-)
+
+# article_list = ListAPIView.as_view(
+#     queryset=Article.objects.all(),
+#     serializer_class=ArticleSerializer,
+# )
 
 # # step 1
 # def article_list(request):
