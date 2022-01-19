@@ -1,5 +1,1 @@
-django~=3.2.0
-pillow
-djangorestframework
-djangorestframework-simplejwt
-django-cors-headers
+-r requirements/prod.txt
